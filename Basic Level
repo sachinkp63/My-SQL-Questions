@@ -86,5 +86,21 @@ Then do:
 20. Add a new column email.
   alter table student add column email varchar(20);
 
+21. Rename column course to program.
+  alter table student rename column course to program; 
+
+22. Change data type of age.
+  alter table student modify age bigint;
+
+23. Drop column email.
+  alter table student drop column email;
+
+24. Truncate the student table.
+  truncate table student;
+
+25. Drop the student table.
+  drop table student;
+
+
 
 
