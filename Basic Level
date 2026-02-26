@@ -1,0 +1,90 @@
+BASIC LEVEL (1–30)
+
+1. Create a database named college.
+  create database colleges;
+Then do: 
+  use colleges; --for database use 
+
+2. Create a table students with id, name, age, gender, course.
+  create table student (id int, name varchar(20), age int, gender varchar(10), course varchar(20)); 
+
+3. Insert 10 records into students.
+  INSERT INTO student (id, name, age, gender, course) VALUES
+  (101, 'Rahul Sharma', 20, 'Male', 'BCA'),
+  (102, 'Priya Verma', 19, 'Female', 'BBA'),
+  (103, 'Amit Singh', 21, 'Male', 'B.Tech'),
+  (104, 'Sneha Patel', 22, 'Female', 'MCA'),
+  (105, 'Rohan Gupta', 20, 'Male', 'B.Com'),
+  (106, 'Anjali Mehta', 23, 'Female', 'MBA'),
+  (107, 'Vikas Yadav', 18, 'Male', 'B.Sc'),
+  (108, 'Pooja Rani', 21, 'Female', 'B.Ed'),
+  (109, 'Arjun Kumar', 24, 'Male', 'M.Tech'),
+  (110, 'Neha Joshi', 20, 'Female', 'BCA');
+
+4. Display all records from the table.
+  select * from student;
+
+5. Display only student names and courses.
+  select name, course from student;
+
+6. Find students whose age is greater than 20.
+  select * from student where age > 20; 
+
+7. Find students whose course is BCA.
+  select * from student where course = "BCA";
+
+8. Sort students by name in ascending order.
+  select * from student order by name asc;
+
+9. Sort students by age in descending order.
+  select * from student order by name desc;
+
+10. Count total number of students.
+  select count(*) from student;
+  SELECT COUNT(*) AS total_students FROM student; -- it creates as columns 
+
+11. Find distinct courses.
+  select distinct course from student; 
+
+12. Find distinct courses.
+  select distinct course from student; 
+
+13. Find students whose name starts with 'S'.
+  select * from student where name like "s%";
+
+14. Find students whose name ends with 'n'.
+  select * from student where name like "%n";
+
+15. Find students whose age is between 18 and 22.
+  select * from student where age > 18 and age <22;
+                      OR
+  select * from student where age between 18 and 22;
+
+16. Use IN to find students enrolled in BCA or BSc.
+  select * from student where course in ("BCA","B.Sc");
+                      OR
+  select * from student where course = "BCA" or course = "B.Sc";
+
+17. Find students with NULL values.
+  select * from student where age is null;
+                      OR
+  select * from student where id is null OR name is null OR age is null OR gender is null OR course is null;
+
+18. Delete a student with id = 105.
+  delete from student where id = 105; 
+  -- In case there is problem like:-  ""(DELETE FROM student WHERE id = 105	Error Code: 1175. 
+  You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.  To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.000 sec)""
+  --should be disable the safe mode
+
+  SET SQL_SAFE_UPDATES = 0;
+
+  --To on this place 1 in place of 0 
+
+19. Update course of student with id = 3.
+  update student set course = "M.tech" where id = 103;
+
+20. Add a new column email.
+  alter table student add column email varchar(20);
+
+
+
