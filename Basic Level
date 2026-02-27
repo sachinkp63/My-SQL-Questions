@@ -101,6 +101,36 @@ Then do:
 25. Drop the student table.
   drop table student;
 
+26. Create a backup table from students.
+  STEP 1-: create table student_backup like student;
+  STEP 2-: insert into student_backup select * from student;
+
+27. Use LIMIT to fetch first 5 records.
+  select * from student limit 5;
+
+28. Use OFFSET to skip first 3 records.
+  select * from student limit 10 offset 3; 
+                    OR
+  select * from student limit 3, 10;
+
+29. Use DISTINCT with multiple columns.
+  select distinct course, gender from student;
+
+30. Find current date using SQL.
+  select curdate();
+        OR
+  select current_date();
+
+31. Display current system time.
+  select current_time();
+        OR
+  select current_time();
+
+32. Display current date and time.
+  select current_timestamp();
+        OR
+  select now();
+
 
 
 
