@@ -8,4 +8,52 @@ desc customer;
 create table orders (order_id int primary key auto_increment, customer_id int, order_date date, order_amount decimal(12,2), payment_method varchar(20), order_status varchar(20), shipping_city varchar(20), foreign key (customer_id) references customer(customer_id));
 desc orders;
 
+INSERT INTO customer 
+(first_name, last_name, email, phone_no, city, state, registration_date, customer_type)
+VALUES
+('Sachin', 'Patel', 'sachin@gmail.com', 9876543210, 'Mumbai', 'Maharashtra', '2023-01-15', 'Gold'),
+('Rahul', 'Sharma', 'rahul@gmail.com', 9876501234, 'Delhi', 'Delhi', '2023-02-20', 'Silver'),
+('Priya', 'Verma', 'priya@gmail.com', 9123456780, 'Bangalore', 'Karnataka', '2023-03-18', 'Platinum'),
+('Amit', 'Kumar', 'amit@gmail.com', 9988776655, 'Pune', 'Maharashtra', '2023-04-10', 'Silver'),
+('Neha', 'Singh', 'neha@gmail.com', 9090909090, 'Hyderabad', 'Telangana', '2023-05-05', 'Gold'),
+('Rohit', 'Mehta', 'rohit@gmail.com', 9012345678, 'Chennai', 'Tamil Nadu', '2023-06-12', 'Silver'),
+('Anjali', 'Desai', 'anjali@gmail.com', 9345678901, 'Ahmedabad', 'Gujarat', '2023-07-22', 'Gold'),
+('Vikas', 'Yadav', 'vikas@gmail.com', 9765432109, 'Lucknow', 'Uttar Pradesh', '2023-08-14', 'Silver'),
+('Sneha', 'Reddy', 'sneha@gmail.com', 9456781230, 'Visakhapatnam', 'Andhra Pradesh', '2023-09-09', 'Platinum'),
+('Karan', 'Malhotra', 'karan@gmail.com', 9988123456, 'Jaipur', 'Rajasthan', '2023-10-30', 'Gold');
 
+select * from customer;
+
+INSERT INTO orders
+(customer_id, order_date, order_amount, payment_method, order_status, shipping_city)
+VALUES
+-- ===== 2023 =====
+(4, '2023-01-12', 8000.00, 'UPI', 'Completed', 'Pune'),
+(1, '2023-02-18', 15000.00, 'Credit Card', 'Completed', 'Mumbai'),
+(2, '2023-03-05', 12000.00, 'UPI', 'Completed', 'Delhi'),
+(6, '2023-04-21', 9000.00, 'Debit Card', 'Completed', 'Chennai'),
+(7, '2023-05-30', 28000.00, 'Credit Card', 'Completed', 'Ahmedabad'),
+(5, '2023-06-14', 45000.00, 'Net Banking', 'Completed', 'Hyderabad'),
+(8, '2023-07-19', 14000.00, 'UPI', 'Completed', 'Lucknow'),
+(10, '2023-08-11', 33000.00, 'UPI', 'Completed', 'Jaipur'),
+(3, '2023-09-23', 55000.00, 'Credit Card', 'Completed', 'Bangalore'),
+(9, '2023-10-09', 60000.00, 'Credit Card', 'Completed', 'Visakhapatnam'),
+-- ===== 2024 =====
+(1, '2024-01-15', 25000.00, 'UPI', 'Completed', 'Mumbai'),
+(2, '2024-02-10', 22000.00, 'Credit Card', 'Completed', 'Delhi'),
+(3, '2024-03-05', 30000.00, 'Net Banking', 'Completed', 'Bangalore'),
+(4, '2024-04-18', 15000.00, 'Debit Card', 'Completed', 'Pune'),
+(5, '2024-05-12', 20000.00, 'UPI', 'Completed', 'Hyderabad'),
+(6, '2024-06-07', 11000.00, 'Credit Card', 'Completed', 'Chennai'),
+(7, '2024-07-22', 32000.00, 'Credit Card', 'Completed', 'Ahmedabad'),
+(8, '2024-08-16', 21000.00, 'Net Banking', 'Pending', 'Lucknow'),
+(9, '2024-09-03', 40000.00, 'Debit Card', 'Completed', 'Visakhapatnam'),
+(10, '2024-10-28', 27000.00, 'Credit Card', 'Completed', 'Jaipur'),
+-- ===== 2025 =====
+(1, '2025-01-10', 18000.00, 'Debit Card', 'Completed', 'Mumbai'),
+(3, '2025-02-14', 45000.00, 'UPI', 'Completed', 'Bangalore'),
+(5, '2025-03-08', 17000.00, 'Net Banking', 'Pending', 'Hyderabad'),
+(9, '2025-04-19', 35000.00, 'UPI', 'Completed', 'Visakhapatnam'),
+(10, '2025-05-25', 15000.00, 'Credit Card', 'Cancelled', 'Jaipur');
+
+select * from orders;
