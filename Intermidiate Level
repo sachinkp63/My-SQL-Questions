@@ -1,1 +1,11 @@
 ========================================================================= Intermidiate Level =========================================================================
+
+----- Table created ------
+create database customer_order;
+use customer_order;
+create table customer (customer_id int primary key auto_increment, first_name varchar(20), last_name varchar(20), email varchar(100), phone_no bigint, city varchar(20), state varchar(20), registration_date Date, customer_type varchar(20), status varchar(20) default 'Active');
+desc customer;
+create table orders (order_id int primary key auto_increment, customer_id int, order_date date, order_amount decimal(12,2), payment_method varchar(20), order_status varchar(20), shipping_city varchar(20), foreign key (customer_id) references customer(customer_id));
+desc orders;
+
+
