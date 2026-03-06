@@ -156,5 +156,55 @@ select * from orders;
   SELECT AVG(order_amount) 
   FROM orders;
 
+10. Find customers with total purchase > 50,000.
 
+  select
+  c.customer_id,
+  c.first_name,
+  c.last_name,
+  sum(o.order_amount) as total_purchase
+  from customer c
+  inner join orders o
+  on c.customer_id = o.customer_id
+  group by c.customer_id,c.first_name
+  having sum(o.order_amount) > 50000;
 
+11. Use GROUP BY with multiple columns.
+
+  SELECT 
+    customer_id,
+    order_status,
+    SUM(order_amount) AS total_sales
+  FROM orders
+  GROUP BY customer_id, order_status;
+============= OR =====================
+
+  SELECT 
+      c.city,
+      o.order_status,
+      COUNT(o.order_id) AS total_orders
+  FROM customer c
+  JOIN orders o
+  ON c.customer_id = o.customer_id
+  GROUP BY c.city, o.order_status;
+
+12. Use HAVING clause with aggregation.
+
+  SELECT 
+  customer_id,
+  COUNT(order_id) AS total_orders
+  FROM orders
+  GROUP BY customer_id
+  HAVING COUNT(order_id) > 2;
+============ OR ===================
+  SELECT 
+  customer_id,
+  SUM(order_amount) AS total_purchase
+  FROM orders
+  GROUP BY customer_id
+  HAVING SUM(order_amount) > 50000;
+
+13. Find maximum and minimum order amount.
+
+  Maximum :- select max(order_amount) as maximum_amount from orders;
+  Minimum :- select min(order_amount) as minimum_amount from orders;
