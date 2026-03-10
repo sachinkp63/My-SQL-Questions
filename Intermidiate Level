@@ -237,4 +237,28 @@ select * from orders;
 ============== OR =============
   DROP INDEX idx_customer_id ON orders;
 
+18. Use CASE statement for order status.
 
+  select
+  order_id,customer_id,order_amount,
+  case 
+  when order_amount >= 30000 then "High Value Order"
+  when order_amount >= 15000 then "Medium Value Order"
+  else "Low Value Order"
+  end as order_category
+  from orders
+
+============ OR =====================
+
+SELECT 
+    order_id,
+    order_status,
+    CASE
+        WHEN order_status = 'Completed' THEN 'Delivered'
+        WHEN order_status = 'Pending' THEN 'Processing'
+        WHEN order_status = 'Cancelled' THEN 'Order Cancelled'
+        ELSE 'Unknown'
+    END AS status_description
+FROM orders;
+
+19. 
